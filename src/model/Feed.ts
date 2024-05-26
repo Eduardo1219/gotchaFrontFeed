@@ -1,5 +1,6 @@
 export interface FeedEntity {
     feed: FeedGotcha[];
+    id: string;
 }
 
 export interface FeedGotcha {

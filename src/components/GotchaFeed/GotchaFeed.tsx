@@ -1,16 +1,16 @@
 "use client"
 
 import { FeedEntity, FeedGotcha } from "@/model/Feed";
+import { useEffect } from "react";
 
 export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
-
     return (
         <>
             {
                 gotchaFeed.feed.map((item: FeedGotcha, index) => {
                     return (
-                        <section className="d-flex flex-column mt-10" style={{ marginTop: 35 }}>
-                            <div className="d-flex flex-row feed-top-border" key={index}>
+                        <section className="d-flex flex-column mt-10" key={index} style={{ marginTop: 35 }}>
+                            <div className="d-flex flex-row feed-top-border">
                                 <div className="d-flex flex-column p-2">
                                     <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" className="rounded-circle" />
                                 </div>
@@ -18,7 +18,7 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                     <div className="d-flex flex-row p-2">
                                         <span><b>{item.userName + ' ' + item.userLastName} </b></span>
                                         <span className="nick-name"> @{item.userNickname}</span>
-                                        <span>- {item.creationDate.toDateString()}</span>
+                                        {/* <span>- {item.creationDate.toDateString()}</span> */}
                                     </div>
                                     <div className="p-2 gotcha-content">
                                         <span>{item.content}</span>
@@ -37,7 +37,7 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                                 <div className="d-flex flex-row p-2">
                                                     <span><b>{(item.repostedGotcha?.userName ?? '') + ' ' + (item.repostedGotcha?.userLastName ?? '')}</b></span>
                                                     <span className="nick-name"> @{item.repostedGotcha?.userNickname ?? ''}</span>
-                                                    <span>- {item.repostedGotcha?.creationDate.toDateString() ?? ''}</span>
+                                                    {/* <span>- {item.repostedGotcha?.creationDate.toDateString() ?? ''}</span> */}
                                                 </div>
                                                 <div className="p-2">
                                                     <span>{item.repostedGotcha?.content}</span>
