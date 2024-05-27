@@ -5,16 +5,18 @@ import { FeedEntity, FeedGotcha } from "@/model/Feed";
 import { useEffect, useState } from "react";
 import { repostGotcha } from "@/services/feedService";
 import { RepostGotchaDto } from "@/model/RepostGotchaDto";
+import { useUserStore } from "@/store/user/userStore";
 
 export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
 
     const [gotchaRepost, setGotchaRepost] = useState<FeedGotcha>()
     const [contentRepost, setContentRepost] = useState('');
+    const { data } = useUserStore();
 
     const onRepost = () => {
         const dto: RepostGotchaDto = {
             gotchaId: gotchaRepost!?.gotchaId,
-            userId: '47EDA702-17EF-46D8-85CA-0A017AAD5955',
+            userId: data.id,
             repostContent: contentRepost
         }
 
@@ -37,7 +39,6 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                     <div className="d-flex flex-row p-2">
                                         <span><b>{item.userName + ' ' + item.userLastName} </b></span>
                                         <span className="nick-name"> @{item.userNickname}</span>
-                                        {/* <span>- {item.creationDate.toDateString()}</span> */}
                                     </div>
                                     <div className="p-2 gotcha-content">
                                         <span>{item.content}</span>
@@ -81,8 +82,7 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                             <div className="gotcha-post">
                                                 <div>
                                                     <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" className="rounded-circle" />
-                                                    {/* <input type="textarea" className="form-control" id="inputEmail3" placeholder="What's happening" value={content} onChange={(v) => setContent(v.target.value)} /> */}
-                                                    <textarea value={contentRepost} onChange={(v) => setContentRepost(v.target.value)} className="form-control" placeholder="Say something about it" id="exampleFormControlTextarea1" rows={3}></textarea>
+                                                    <textarea value={contentRepost} onChange={(v) => setContentRepost(v.target.value)} className="form-control" placeholder="Say something about it" id="exampleFormControlTextarea1" rows={1}></textarea>
                                                 </div>
                                             </div>
                                             <div className="d-flex flex-row feed-top-border-chield-repost" >
@@ -93,7 +93,6 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                                     <div className="d-flex flex-row p-2">
                                                         <span><b>{(gotchaRepost?.userName ?? '') + ' ' + (gotchaRepost?.userLastName ?? '')}</b></span>
                                                         <span className="nick-name"> @{gotchaRepost?.userNickname ?? ''}</span>
-                                                        {/* <span>- {gotchaRepost.creationDate.toDateString() ?? ''}</span> */}
                                                     </div>
                                                     <div className="p-2">
                                                         <span>{gotchaRepost?.content ?? ''}</span>
@@ -102,7 +101,6 @@ export default function GotchaFeed({ gotchaFeed }: { gotchaFeed: FeedEntity }) {
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                                             <button type="button" className="btn btn-primary" onClick={() => onRepost()} disabled={contentRepost.length > 1 ? false : true}>Tweet</button>
                                         </div>
                                     </div>

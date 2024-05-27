@@ -3,16 +3,18 @@
 import { GotchaPostDto } from "@/model/GotchaPostDto";
 import { User } from "@/model/User";
 import { postGotcha } from "@/services/feedService";
+import { useUserStore } from "@/store/user/userStore";
 import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
-export default function GotchaPub({ user, callback }: { user: User, callback: () => void }) {
+export default function GotchaPub({ callback }: { callback: () => void }) {
     const [content, setContent] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const { data } = useUserStore();
 
     const onClickBtn = () => {
         const gotcha: GotchaPostDto = {
-            userId: user.userId,
+            userId: data.id,
             description: content
         }
         setIsLoading(true);

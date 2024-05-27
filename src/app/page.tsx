@@ -1,21 +1,22 @@
 "use client"
 
-import { FeedEntity } from "@/model/Feed";
 import { LoginDto } from "@/model/Login";
 import { doLogin } from "@/services/loginService";
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
+import { useUserStore } from "@/store/user/userStore";
 
 export default function Home() {
   const [nickName, setNickName] = useState('');
   const router = useRouter()
+  const { data, changeLoginData } = useUserStore();
 
   const onLogin = () => {
     const dto: LoginDto = { nickName }
     doLogin(dto).then(r => {
-      console.log('ok')
+      changeLoginData(r);
       router.push('/feed')
-    })
+    }).catch(err => console.log(err))
   }
 
 

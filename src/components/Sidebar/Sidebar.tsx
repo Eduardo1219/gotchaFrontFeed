@@ -1,3 +1,4 @@
+import { useUserStore } from "@/store/user/userStore";
 import styles from "./styles.module.css"
 
 
@@ -5,6 +6,8 @@ import styles from "./styles.module.css"
 
 
 export default function Sidebar(props: any) {
+    const { data } = useUserStore();
+    
     return (
         <div className="d-flex flex-column justify-content-between align-items-center" style={{ minHeight: "100vh" }}>
             <div className="container-fluid">
@@ -57,8 +60,8 @@ export default function Sidebar(props: any) {
                             <div className="d-flex flex-row align-items-center justify-content-between">
                                 <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
                                 <div className='d-flex flex-column align-items-center justify-content-evenly'>
-                                    <span className="d-none d-sm-inline">{(props.user.userName ?? '') + ' ' + (props.user.userLastName ?? '')}</span>
-                                    <span className="d-none d-sm-inline nick-name">@{props.user.nickName ?? ''}</span>
+                                    <span className="d-none d-sm-inline">{(data.name ?? '') + ' ' + (data.lastName ?? '')}</span>
+                                    <span className="d-none d-sm-inline nick-name">@{data.nickname ?? ''}</span>
                                 </div>
                                 <div className='d-none d-sm-inline'>
                                     <i className="bi-three-dots dots" />

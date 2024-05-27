@@ -6,20 +6,17 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import { FeedEntity } from "@/model/Feed";
 import { User } from "@/model/User";
 import { getCurrentFeed } from "@/services/feedService";
+import { useUserStore } from "@/store/user/userStore";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import { useRouter } from 'next/navigation'
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Feed() {
     const [feed, setFeed] = useState<FeedEntity>();
     const [isLoading, setIsLoading] = useState(false);
-
-    const newUser: User = {
-        userId: '3a154232-c94d-4e47-8348-484a13be0a51',
-        userName: 'buinguinho',
-        userLastName: 'b',
-        nickName: 'buinguinho',
-    }
+    const { data } = useUserStore();
+    const router = useRouter()
 
     const myCallBack = () => {
         getFeed(false);
@@ -39,12 +36,17 @@ export default function Feed() {
     }
 
     useEffect(() => {
+        console.log(data, 'user data?')
+        if (data.id == '' || data.id == null) {
+            router.push('/')
+            return;
+        }
         getFeed(true);
     }, []);
 
     return (
-        <Sidebar user={newUser}>
-            <GotchaPub user={newUser} callback={myCallBack} />
+        <Sidebar user={data}>
+            <GotchaPub callback={myCallBack} />
             {
                 isLoading ? (
                     <Skeleton
