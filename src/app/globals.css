@@ -38,6 +38,16 @@ a.nav-home {
   margin-bottom: 15px;
 }
 
+.feed-top-border-chield-repost {
+  border-color: #edf0f2;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 80%;
+  margin-bottom: 15px;
+}
+
 .gotcha-content {}
 
 .feed-bottom-border {
@@ -100,10 +110,20 @@ a.nav-home {
     margin-left: 10px;
   }
 
+  textarea {
+    border-width: 0px;
+    width: 80%;
+    margin-left: 10px;
+  }
+
   button {
     width: 15%;
     align-self: flex-end;
     margin-right: 10px;
     margin-bottom: 5px;
   }
+}
+
+.resend-gotcha {
+  cursor: pointer;
 }

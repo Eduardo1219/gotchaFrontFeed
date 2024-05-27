@@ -5,12 +5,9 @@ import { User } from "@/model/User";
 import { postGotcha } from "@/services/feedService";
 import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
-import { useRouter } from 'next/navigation';
 
 export default function GotchaPub({ user, callback }: { user: User, callback: () => void }) {
     const [content, setContent] = useState('');
-    const router = useRouter()
-    const [btnDisabled, setBtnDisabled] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
 
     const onClickBtn = () => {
@@ -35,8 +32,9 @@ export default function GotchaPub({ user, callback }: { user: User, callback: ()
             <form className="gotcha-post">
                 <div>
                     <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" className="rounded-circle" />
-                    <input type="email" className="form-control" id="inputEmail3" placeholder="What's happening"
-                        value={content} onChange={(v) => setContent(v.target.value)} />
+                    {/* <input type="textarea" className="form-control" id="inputEmail3" placeholder="What's happening"
+                        value={content} onChange={(v) => setContent(v.target.value)} /> */}
+                    <textarea className="form-control" value={content} onChange={(v) => setContent(v.target.value)} placeholder="What's happening" id="exampleFormControlTextarea1" rows={3}></textarea>
                 </div>
                 {isLoading ?
                     (<Skeleton />) :
