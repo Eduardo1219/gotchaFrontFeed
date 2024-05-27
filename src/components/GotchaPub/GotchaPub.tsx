@@ -34,9 +34,7 @@ export default function GotchaPub({ callback }: { callback: () => void }) {
             <form className="gotcha-post">
                 <div>
                     <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" className="rounded-circle" />
-                    {/* <input type="textarea" className="form-control" id="inputEmail3" placeholder="What's happening"
-                        value={content} onChange={(v) => setContent(v.target.value)} /> */}
-                    <textarea className="form-control" value={content} onChange={(v) => setContent(v.target.value)} placeholder="What's happening" id="exampleFormControlTextarea1" rows={3}></textarea>
+                    <textarea className="form-control" value={content} onChange={(v) => setContent(v.target.value)} placeholder="What's happening" id="exampleFormControlTextarea1" rows={2}></textarea>
                 </div>
                 {isLoading ?
                     (<Skeleton />) :

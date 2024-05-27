@@ -57,6 +57,29 @@ a.nav-home {
   background-position: center;
 }
 
+.filter-gotchas {
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 20px;
+  margin-bottom: 10px;
+
+  input {
+    border-radius: 5px;
+    border-color: #edf0f2;
+    border-style: solid;
+  }
+
+  div {
+    justify-content: space-between;
+    width: 30%;
+
+    i {
+      align-self: center;
+      margin-left: 5px;
+    }
+  }
+}
+
 .login-modal {
   background-color: white;
   border-radius: 10px;
