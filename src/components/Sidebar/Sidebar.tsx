@@ -12,26 +12,47 @@ export default function Sidebar(props: any) {
             <div className="container-fluid">
                 <div className="row flex-nowrap">
                     <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white navbar">
-                        <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100 min-vw-20">
+                        <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2"
+                            style={{
+                                maxHeight: '80%',
+                                minHeight: '95%',
+                                position: 'fixed',
+                                top: 0,
+                            }}>
                             <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none">
                                 <i className="fs-4 bi-twitter" />
                             </a>
                             <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                <li className="nav-item">
-                                    <a href="#" className="nav-home px-0 align-middle">
-                                        <i className="fs-4 bi-house"></i>
-                                        <span className="ms-1 d-none d-sm-inline">Home</span>
-                                    </a>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-house"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Home</span>
                                 </li>
-                                <li>
-                                    <a href="#" className="nav-link px-0 align-middle">
-                                        <i className="fs-4 bi-hash"></i>
-                                        <span className="ms-1 d-none d-sm-inline">Explore</span></a>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-bell"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Notifications</span>
                                 </li>
-                                <li>
-                                    <a href="#" className="nav-link px-0 align-middle">
-                                        <i className="fs-4 bi-bell"></i>
-                                        <span className="ms-1 d-none d-sm-inline">Notifications</span></a>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-envelope"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Messages</span>
+                                </li>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-bookmark"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Bookmarks</span>
+                                </li>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-chat-left-text"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Lists</span>
+                                </li>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-person"></i>
+                                    <span className="ms-1 d-none d-sm-inline">Profile</span>
+                                </li>
+                                <li className="nav-link">
+                                    <i className="fs-4 bi-three-dots"></i>
+                                    <span className="ms-1 d-none d-sm-inline">More</span>
+                                </li>
+                                <li className="align-self-center">
+                                    <button className="btn btn-primary align-midle">Tweet</button>
                                 </li>
                             </ul>
                             <hr />
