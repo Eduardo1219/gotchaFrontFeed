@@ -1,6 +1,7 @@
-a.nav-link {
+.nav-link {
   color: #000;
   font-weight: 600;
+  padding: 5px;
 }
 
 a.nav-home {
@@ -32,15 +33,12 @@ a.nav-home {
   border-color: #edf0f2;
   border-style: solid;
   border-width: 1px;
-  width: 90%;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-.gotcha-content {
-  
-}
+.gotcha-content {}
 
 .feed-bottom-border {
   border-bottom-color: #edf0f2;

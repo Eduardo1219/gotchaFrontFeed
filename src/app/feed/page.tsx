@@ -15,23 +15,36 @@ export default function Feed() {
     const [isLoading, setIsLoading] = useState(false);
 
     const newUser: User = {
+        userId: '3a154232-c94d-4e47-8348-484a13be0a51',
         userName: 'buinguinho',
         userLastName: 'b',
         nickName: 'buinguinho',
     }
 
-    useEffect(() => {
-        setIsLoading(true);
+    const myCallBack = () => {
+        getFeed(false);
+    }
+
+    const getFeed = (isLoad: boolean) => {
+        setIsLoading(isLoad);
         getCurrentFeed()
             .then(t => {
                 setFeed(t);
                 setIsLoading(false);
             });
+    }
+
+    const repostItem = () => {
+
+    }
+
+    useEffect(() => {
+        getFeed(true);
     }, []);
 
     return (
         <Sidebar user={newUser}>
-            <GotchaPub user={newUser} />
+            <GotchaPub user={newUser} callback={myCallBack} />
             {
                 isLoading ? (
                     <Skeleton

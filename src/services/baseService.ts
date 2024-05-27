@@ -1,8 +1,9 @@
 'use server'
 
-export default async function callApi(method: string, URI: string, body: any = null) {
+import { methods } from "./methodsEnum";
+
+export default async function callApi(method: methods, URI: string, body: any = null) {
     const url = `${process.env.NEXT_GOTCHA_API}/${URI}`;
-    console.log(url,'url')
     let myHeaders = new Headers(
         {
             'Content-Type': 'application/json',
@@ -10,17 +11,17 @@ export default async function callApi(method: string, URI: string, body: any = n
     );
 
     let configCall: RequestInit = {
-        method,
+        method: methods[method].toString(),
         headers: myHeaders,
     };
 
-    if (method !== 'GET') {
+    if (method !== methods.GET) {
         configCall.body = JSON.stringify(body)
     }
     console.log(url, configCall, 'fetch call')
     try {
         const r = await fetch(url, configCall);
-        console.log(r,'rrr');
+        console.log(r, 'rrr');
         if (!r.ok) {
             if (r.status === 401) {
                 localStorage.clear();
@@ -37,6 +38,7 @@ export default async function callApi(method: string, URI: string, body: any = n
         }
         else {
             if (r.status === 204) return;
+            if (r.status === 201) return;
 
             return await r.json();
         }
