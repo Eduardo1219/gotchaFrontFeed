@@ -9,7 +9,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ['300', '400', '500', '600
 
 export const metadata: Metadata = {
   title: "Gotcha",
-  description: "Gotcha Feed Socia Media",
+  description: "Gotcha Feed Social Media",
   icons: {
     icon: './favicon.ico',
   }

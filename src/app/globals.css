@@ -48,7 +48,45 @@ a.nav-home {
   margin-bottom: 15px;
 }
 
-.gotcha-content {}
+.login-page {
+  background-color: #7f80a9;
+  /* width: 850px; */
+  background-image: url('../../public/images/undraw_personal_opinions_re_qw29.svg');
+  /* background-image: url('../../public/images/undraw_chat_re_re1u.svg'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.login-modal {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 40%;
+  justify-content: space-evenly;
+
+  button {
+    width: 80%;
+  }
+
+  div {
+    input {
+      width: 80%;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    i {
+      align-self: center;
+    }
+
+    padding: 10px;
+    justify-content: space-evenly;
+  }
+}
 
 .feed-bottom-border {
   border-bottom-color: #edf0f2;

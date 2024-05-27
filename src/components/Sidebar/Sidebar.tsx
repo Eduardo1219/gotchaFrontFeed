@@ -1,5 +1,3 @@
-import { FeedGotcha } from "@/model/Feed";
-import { User } from "@/model/User";
 import styles from "./styles.module.css"
 
 
