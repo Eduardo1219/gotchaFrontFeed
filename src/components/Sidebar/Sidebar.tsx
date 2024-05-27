@@ -7,7 +7,7 @@ import styles from "./styles.module.css"
 
 export default function Sidebar(props: any) {
     const { data } = useUserStore();
-    
+
     return (
         <div className="d-flex flex-column justify-content-between align-items-center" style={{ minHeight: "100vh" }}>
             <div className="container-fluid">
@@ -53,18 +53,20 @@ export default function Sidebar(props: any) {
                                     <span className="ms-1 d-none d-sm-inline">More</span>
                                 </li>
                                 <li className="align-self-center">
-                                    <button className="btn btn-primary align-midle">Tweet</button>
+                                    <button className="btn btn-primary align-midle">gotcha</button>
                                 </li>
                             </ul>
                             <hr />
                             <div className="d-flex flex-row align-items-center justify-content-between">
-                                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
+                                <img src={`${process.env.NEXT_PUBLIC_GOTCHA_API}/users/image/${data.imgBase64}`} alt="hugenerd" width="30" height="30" className="rounded-circle" />
                                 <div className='d-flex flex-column align-items-center justify-content-evenly'>
                                     <span className="d-none d-sm-inline">{(data.name ?? '') + ' ' + (data.lastName ?? '')}</span>
                                     <span className="d-none d-sm-inline nick-name">@{data.nickname ?? ''}</span>
                                 </div>
-                                <div className='d-none d-sm-inline'>
-                                    <i className="bi-three-dots dots" />
+                                <div className='align-self-end logout-btn'>
+                                    <a href="/" className="d-flex text-decoration-none">
+                                        <i className="fs-4 bi-box-arrow-right" />
+                                    </a>
                                 </div>
                             </div>
                         </div>

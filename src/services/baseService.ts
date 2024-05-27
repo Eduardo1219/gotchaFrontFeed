@@ -3,7 +3,7 @@
 import { methods } from "./methodsEnum";
 
 export default async function callApi(method: methods, URI: string, body: any = null) {
-    const url = `${process.env.NEXT_GOTCHA_API}/${URI}`;
+    const url = `${process.env.NEXT_PUBLIC_GOTCHA_API}/${URI}`;
     let myHeaders = new Headers(
         {
             'Content-Type': 'application/json',
@@ -18,10 +18,8 @@ export default async function callApi(method: methods, URI: string, body: any = 
     if (method !== methods.GET) {
         configCall.body = JSON.stringify(body)
     }
-    console.log(url, configCall, 'fetch call')
     try {
         const r = await fetch(url, configCall);
-        console.log(r, 'rrr');
         if (!r.ok) {
             if (r.status === 401) {
                 localStorage.clear();

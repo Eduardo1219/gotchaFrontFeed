@@ -11,6 +11,7 @@ export interface FeedGotcha {
     userName: string;
     userLastName: string;
     userNickname: string;
+    userImg: string;
     content: string;
     qntdRepost: number;
     isRepost: boolean;
@@ -26,5 +27,6 @@ export interface FeedRepostedGotcha {
     userLastName: string;
     userNickname: string;
     content: string;
+    userImg: string;
     qntdRepost: number;
 }

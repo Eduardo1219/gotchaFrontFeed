@@ -15,9 +15,9 @@ export function getCurrentFeed(): Promise<FeedEntity> {
 export function postGotcha(dto: GotchaPostDto) {
     const response = callApi(methods.POST, 'Gotcha', dto).then(r => {
         return r;
+    }).catch(err => {
+        throw err;
     });
-
-    console.log('THIS IS MY RESPONSEEEEEE', response);
 
     return response;
 }
@@ -26,9 +26,7 @@ export function repostGotcha(dto: RepostGotchaDto) {
 
     const response = callApi(methods.POST, 'Repost', dto).then(r => {
         return r;
-    });
-
-    console.log('THIS IS MY RESPONSEEEEEE', response);
+    }).catch(err => { throw err });
 
     return response;
 }

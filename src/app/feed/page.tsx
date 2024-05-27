@@ -96,7 +96,7 @@ export default function Feed() {
                         baseColor={'gray'} />
                 ) : feedGotchas && (
                     <InfiniteScroll next={incrementScroll} hasMore={moreData} loader={<p>loading...</p>} dataLength={feedGotchas.length}>
-                        <GotchaFeed gotchaFeed={feedGotchas} filterFeed={filterFeed} filterOnType={filterOnType} />
+                        <GotchaFeed callback={myCallBack} gotchaFeed={feedGotchas} filterFeed={filterFeed} filterOnType={filterOnType} />
                     </InfiniteScroll>
                 )}
         </Sidebar>

@@ -23,10 +23,21 @@ a.nav-home {
   border-left-width: 0px;
 }
 
+.logout-btn {
+  margin-left: 20px;
+}
+
+.login-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .feed-top-border {
   border-top-color: #edf0f2;
   border-top-style: solid;
   border-top-width: 1px;
+  background-color: white;
 }
 
 .feed-top-border-chield {
@@ -78,6 +89,11 @@ a.nav-home {
       margin-left: 5px;
     }
   }
+}
+
+.small-warning {
+  color: red;
+  align-self: center;
 }
 
 .login-modal {

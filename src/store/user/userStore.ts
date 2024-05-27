@@ -8,7 +8,8 @@ export type LoginData = {
     lastName: string;
     nickname: string;
     email: string;
-    postsDay: string;
+    postsDay: number;
+    imgBase64: string;
 }
 
 type Action = {
@@ -27,7 +28,8 @@ export const useUserStore = create<LoginDataProps & Action>((set) => ({
         lastName: "",
         nickname: "",
         email: "",
-        postsDay: "",
+        postsDay: 0,
+        imgBase64: ''
     },
     changeLoginData: (changeData) => set(() => ({
         data: changeData
@@ -39,7 +41,8 @@ export const useUserStore = create<LoginDataProps & Action>((set) => ({
             lastName: "",
             nickname: "",
             email: "",
-            postsDay: "",
+            postsDay: 0,
+            imgBase64: ''
         }
     })),
 }));

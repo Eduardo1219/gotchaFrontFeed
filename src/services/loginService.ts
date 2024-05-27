@@ -6,11 +6,11 @@ import { LoginData } from "@/store/user/userStore";
 
 
 
-export function doLogin(dto: LoginDto) : Promise<LoginData> {
+export function doLogin(dto: LoginDto): Promise<LoginData> {
     const response = callApi(methods.POST, 'Users/login', dto)
         .then(r => {
             return r;
-        });
+        }).catch(err => { throw err });
 
     return response;
 }
